@@ -1,0 +1,57 @@
+Cisco ConfParse:
+
+pip install ciscoconfparse
+
+from ciscoconfparse import CiscoConfParse
+
+cisco_cfg = CiscoConfParse("cisco_config.txt")
+
+interfaces = cisco_cfg.find_objects(r"^interface")
+
+for i in interfaces:
+	print i.text
+
+
+fa4 = interface[4]
+
+# To see the children underneath an element:
+
+print fa4.children
+
+# To see it more human readable:
+
+for child in fa4.child:
+	print child.text
+
+
+# Child is just one level of indentation. To see all levels of indentation:
+
+crypto_pki = cisco_cfg.find_objects(r"crypto pki certificate")
+
+# this grabs just the first element in the list
+crypto_pki = crypto_pki[0]
+
+crypto_pki.all_children
+
+
+# this will print all the children
+for child in crypto_pki.all_children:
+	print child.text
+
+# to check if something is a child:
+<variable>.child
+
+# to check if something is a parent:
+<variable>.parent
+
+# to see the parent of a child
+<variable>.parent
+
+# to see all parents
+<variable>.all_parents
+
+# for find objects with child underneath interface and has value "no ip address"
+cisco_cfg.find_objects_w_child(parentspec=r"^interface, childspec=r"no ip address")
+
+# for find objects without child finds everything that doesnt match the child spec
+cisco_cfg.find_objects_wo_child(parentspec=r"^interface, childspec=r"no ip address")
