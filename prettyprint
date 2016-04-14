@@ -1,0 +1,3 @@
+from pprint import pprint as pp
+
+print pp(new_list)
