@@ -1,0 +1,14 @@
+import json
+
+To see a list output in json format:
+	json.dumps(my_list)
+	
+To write json to a file:
+	with open("my_file.json), "w") as f:
+		json.dump(my_list, f)
+		
+To load json in from a file:
+	with open("my_file.json") as f:
+		new_list = json.load(f)
+	
+JSON does NOT support a comma on the last list element
