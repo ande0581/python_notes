@@ -1,0 +1,20 @@
+The top of a yaml formatted file should have three hyphens at the top. Python doesn’t do this automatically
+
+import yaml
+
+To convert a list to yaml using standard version:
+	yaml.dump(my_list)
+	
+To convert a list to yaml using the condensed version:
+	yaml.dump(my_list, default_flow_style=True)
+	
+To convert a list to the more human readable format:
+	yaml.dump(my_list, default_flow_style=False)
+	
+To write yaml to a file:
+	with open("my_file.yml", "w") as f:
+		f.write(yaml.dump(my_list, default_flow_style=False))
+		
+To read in a yaml file:
+	with open("my_file.yml", "r") as f:
+    new_list = yaml.load(f)
