@@ -1,0 +1,40 @@
+To clone a repository from github:
+	git clone https://github.com/userid/repository.git
+
+To add a file to git:
+	git add my_file.py
+	or
+	git add my_directory/
+	
+To commit a change to git:
+	 git commit -m "Adding test hello"
+	
+To see the git history:
+	git log
+	
+To push changes up to github:
+	git push origin master
+	
+	Origin is an alias for the output of 'git remote -v'
+	Origin is the destination, master is the source branch
+	This command assumes that the git remote has the same name as the branch you are pushing to
+	
+To pull changes from the remote repository (github):
+	git pull origin master
+	
+To check for uncommitted files:
+	git status
+	
+To see the current branch you are working on:
+	git branch
+
+To create a new branch:
+	git branch <name>
+	
+To checkout a new branch:
+	git checkout <branch>
+	
+To merge a branch you want to start on the branch you plan to merge into:
+	git checkout <main_branch>
+	git merge <dev_branch>
+	Now you need to update with a comment describing the changes
