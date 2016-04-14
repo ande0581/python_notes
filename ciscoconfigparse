@@ -4,7 +4,7 @@ Cisco ConfParse:
 
 pip install ciscoconfparse
 
-from CiscoConfParse import CiscoConfParse
+from ciscoconfparse import CiscoConfParse
 
 cisco_cfg = CiscoConfParse("cisco_config.txt")
 
