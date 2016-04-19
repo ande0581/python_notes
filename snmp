@@ -1,0 +1,40 @@
+SNMP is good for collecting router information, not good for making configuration changes.
+
+oid = object identifier
+mib = management information base (provides definition of snmp objects (oids, human readable names, interpretation of the data sent back)
+
+There are two main snmp library choices:
+	pysnmp (entirely python)
+	netsnmp (c library with python hooks). Good to walk and find oids in the snmp tree
+
+You can use a MiB browser to find this info:
+	.iso(1).org(3).dod(6).internet(1).mgmt(2).mib2(1).system(1).sysDescr(1)
+	
+	Scalar data needs .0 append on the end
+	Tabular data does not need this
+
+From linux cli to test snmp:
+	snmpget -v 1 -c <commstring> 10.0.0.15 10.3.6.1.2.1.1.1.0
+
+Python Example:
+
+# need to have this helper script available for the import available from kbyers
+from snmp_helper import snmp_get_oid,snmp_extract
+
+COMMUNITY_STRING = 'mycommstr'
+SNMP_PORT = 161
+IP = '10.0.0.15'
+
+# this is a tuple (unchangable list)
+a_device = (IP, COMMUNITY_STRING, SNMP_PORT)
+
+# system description oid
+OID = '1.3.6.1.2.1.1.1.0'
+
+snmp_data = snmp_get_oid(a_device, oid=OID)
+
+# Converts from Hex to Human Readable Output
+output = snmp_extract(snmp_data)
+
+print output
+
