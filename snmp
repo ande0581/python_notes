@@ -18,7 +18,8 @@ From linux cli to test snmp:
 
 Python Example:
 
-# need to have this helper script available for the import available from kbyers
+# need to have this helper script available for the import
+# https://github.com/ktbyers/pynet/blob/master/snmp/snmp_helper.py
 from snmp_helper import snmp_get_oid,snmp_extract
 
 COMMUNITY_STRING = 'mycommstr'
