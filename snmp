@@ -14,7 +14,7 @@ You can use a MiB browser to find this info:
 	Tabular data does not need this
 
 From linux cli to test snmp:
-	snmpget -v 1 -c <commstring> 10.0.0.15 10.3.6.1.2.1.1.1.0
+	snmpget -v 1 -c <commstring> 10.0.0.15 1.3.6.1.2.1.1.1.0
 
 Python Example:
 
