@@ -1,0 +1,14 @@
+
+old school way to install packages:
+
+wget https://pypi.python.org/packages/source/p/pysnmp/pysnmp-4.2.5.tar.gz
+gunzip pysnmp-4.2.5.tar.gz
+tar -xvpf pysnmp-4.2.5.tar
+cd pysnmp-4.2.5
+python setup.py install
+
+better way to install packages, pip (package manager):
+
+pip install pysnmp==4.2.5
+
+On redhat or centos you can use yum, doing this will make updates easier.
