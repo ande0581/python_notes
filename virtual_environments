@@ -1,0 +1,10 @@
+	1. Create a new project folder
+	2. From the CLI go into that folder
+	3. Virtualenv --no-site-packages env
+	4. This creates a new folder in your directory called 'env' that gets python, pip, wheel, etc
+	5. To activate your virtual environment you type 'env\Scripts\activate'
+	6. Your CLI prompt will now be prepended with (env) c:\xxx
+	7. From this stage you can install whatever you need and it will not overlap with other projects
+	8. To restore from a requirements.txt file you would type 'pip install -r requirements.txt'
+	9. To update the requirements file post package change 'pip freeze > requirements.txt'
+  10. To deactivate the environment type 'deactivate'
