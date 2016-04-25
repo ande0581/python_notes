@@ -1,0 +1,36 @@
+Pickle:
+
+Can data python data structures and write them to a file in byte-stream format for retrieval later
+
+import pickle
+
+# open the file for writing/binary
+f = open("mypicklefile.pkl", "wb")
+
+# create a list called a
+a = range(10)
+a.append('whatever')
+
+# write variable 'a' to the file
+pickle.dump(a, f)
+
+# create a list called b
+b = a[5:]
+
+# write variable 'b' to the file
+pickle.dump(b, f)
+
+# close the file
+f.close()
+
+
+# to read the objects back in from a file
+f = open("mypicklefile.pkl", "rb")
+
+c = pickle.load(f)
+# c would be [0,1,2,3,4,5,6,7,8,9,'whatever']
+
+d = pickle.load(f)
+# d would be [5,6,7,8,9,'whatever']
+
+f.close()
