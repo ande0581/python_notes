@@ -48,4 +48,4 @@ remote_conn.recv(65535)
 # If you need to exceed this limit you can do it via a loop, checking for recv_ready()
 
 # When building this into a python script, you need to introduce delay to to give the router time to respond
-time.wait(2)
+time.sleep(2)
