@@ -13,11 +13,15 @@ remote_conn_pre = paramiko.SSHClient()
 
 # Tell paramiko to blindly accept any host keys (not good security)
 remote_conn_pre.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+# An alternative to the 'accept any keys' is you can use your system host keys
+remote_conn_pre.load_system_host_keys()
+# Or to load ssh keys from a specific path
+remote_conn_pre.load_host_keys("/home/myuser/.ssh/known_host")
 
 # Create SSH Connection
 remote_conn_pre.connect(ip_addr, username=username, password=password, look_for_keys=False, allow_agents=False, port=port)
 
-# Invoke Shell
+# Invoke Shell, creates interactive shell when interacting with the device
 remote_conn = remote_conn_pre.invoke_shell()
 
 # Collect Output, receive up to 5000 bytes
