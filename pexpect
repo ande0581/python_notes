@@ -9,7 +9,7 @@ password = 'mypass'
 port = 22
 
 # Spawn a child process to connect to the router
-ssh_conn = pexpect.spawn('ssh -l {} {} =p {}'.format(username, ip_addr, port)
+ssh_conn = pexpect.spawn('ssh -l {} {} -p {}'.format(username, ip_addr, port))
 ssh_conn.timeout = 3
 ssh_conn.expect('ssword:')
 ssh_conn.sendline(password)
