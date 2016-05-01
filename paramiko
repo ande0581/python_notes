@@ -1,0 +1,29 @@
+Paramiko - SSH Library
+
+import paramiko
+ip_addr = '10.11.12.55'
+username = 'myuser'
+password = 'mypass'
+
+# Port only required if not default 22
+port = 8022
+
+# Create the SSH Client Object
+remote_conn_pre = paramiko.SSHClient()
+
+# Tell paramiko to blindly accept any host keys (not good security)
+remote_conn_pre.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+
+# Create SSH Connection
+remote_conn_pre.connect(ip_addr, username=username, password=password, look_for_keys=False, allow_agents=False, port=port)
+
+# Invoke Shell
+remote_conn = remote_conn_pre.invoke_shell()
+
+# Collect Output, receive up to 5000 bytes
+output = remote_conn.recv(5000)
+
+# To send a command down the channel and print it
+remote_conn.send("show ip int brief")
+output = remote_conn.recv(5000)
+print output
