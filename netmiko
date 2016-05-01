@@ -1,0 +1,41 @@
+Netmiko - SSH Network Device Class
+
+from netmiko import ConnectHandler
+
+# Dictionary of device info. Port is optional if using standard 22
+myrouter = {
+	'device_type': 'cisco_ios',
+	'ip': '10.11.12.55',
+	'username': 'myuser',
+	'password': 'mypass',
+	'port': 22,
+}
+
+
+# The ** passes the dictionary as arguments into the ConnectHandler class
+router_conn = ConnectHandler(**myrouter)
+
+# To see the prompt you are at
+router_conn.find_prompt()
+
+# To go into config mode
+router_conn.config_mode()
+
+# To check if you are in config mode, returns boolean
+router_conn.check_config_mode()
+
+# To exit config mode
+router_conn.exit_config_mode()
+
+# To send a command. This automatically adds the 'new line \n'
+# The output removes the echo of the command and the trailing prompt of the command
+# Long commands work automatically, netmiko takes care of disabling paging
+output = router_conn.send_command("show ip int brief")
+print output
+
+# To send a set of commands you create the commands in a list
+config_commands = ['logging buffered 20000', 'logging on']
+output = router_conn.send_config_set(config_commands)
+
+# To save the configuration you have to manually do that
+router_conn.send_command("wr mem")
