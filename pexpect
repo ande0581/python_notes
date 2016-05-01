@@ -1,0 +1,44 @@
+# pexpect notes
+
+import pexpect
+import re
+
+ip_addr = '10.11.12.55'
+username = 'myuser'
+password = 'mypass'
+port = 22
+
+# Spawn a child process to connect to the router
+ssh_conn = pexpect.spawn('ssh -l {} {} =p {}'.format(username, ip_addr, port)
+ssh_conn.timeout = 3
+ssh_conn.expect('ssword:')
+ssh_conn.sendline(password)
+ssh_conn.expect('myhostname#')
+
+# This will print everything before the '#' sign
+print ssh_conn.before
+
+# This will print everything after the '#' sign and including the '#' sign
+print ssh_conn.after
+
+# To disable paging
+ssh_conn.sendline('terminal length 0')
+ssh_conn.expect('myhostname#')
+
+# To send a command, this automatically sends the '\n'
+ssh_conn.sendline('show ip int brief')
+ssh_conn.expect('myhostname#')
+print ssh_conn.before
+
+# To try something and catch potential timeout
+try:
+	ssh_conn.sendline('show version')
+	ssh_conn.expect('zzzz')
+expect pexpect.TIMEOUT:
+	print "Found timeout"
+
+# You can match using regex
+pattern = re.compile(r'^Lic.*DI:.*$', re.MULTILINE)
+ssh_conn.sendline('show version')
+ssh_conn.expect(pattern)
+print ssh_conn.after
