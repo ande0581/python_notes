@@ -30,7 +30,13 @@ router_conn.exit_config_mode()
 # To send a command. This automatically adds the 'new line \n'
 # The output removes the echo of the command and the trailing prompt of the command
 # Long commands work automatically, netmiko takes care of disabling paging
+# send_command() is timing based (i.e. uses a lot of sleeps)
+# send_command_expect() by default will search for the router prompt at the end of the output.
+# you can add an argument delay_factor to send_command to make it wait longer i.e.
+# send_command(delay_factor=.5) will cause it to delay meaningfully longer.
 output = router_conn.send_command("show ip int brief")
+	or
+output = router_conn.send_command_expect("show ip int brief")
 print output
 
 # To send a set of commands you create the commands in a list
