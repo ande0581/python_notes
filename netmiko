@@ -37,5 +37,9 @@ print output
 config_commands = ['logging buffered 20000', 'logging on']
 output = router_conn.send_config_set(config_commands)
 
+# To change config using a file as the source
+# The commands are one per line, no commas, quotes, etc.
+router_conn.send_config_from_file(config_file='config_file.txt')
+
 # To save the configuration you have to manually do that
 router_conn.send_command("wr mem")
