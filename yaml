@@ -17,4 +17,4 @@ To write yaml to a file:
 		
 To read in a yaml file:
 	with open("my_file.yml", "r") as f:
-    new_list = yaml.load(f)
+		 new_list = yaml.load(f)
