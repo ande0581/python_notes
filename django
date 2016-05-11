@@ -1,0 +1,16 @@
+django notes:
+
+### Activate Virtual Environment First ###
+
+# To start a new project from the parent directory of where the project will live:
+django-admin.py startproject <project_name>
+
+# To create a new app underneath an existing project
+python manage.py startapp hello_world
+
+# To add the app to the project
+vi hello_world_project/settings.py
+# Inside the 'INSTALLED_APPS' tuple add 'hello_world'
+
+# To run the development server and accept connections from any host:
+python manage.py runserver 0.0.0.0:80000
