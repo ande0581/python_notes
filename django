@@ -14,3 +14,9 @@ vi hello_world_project/settings.py
 
 # To run the development server and accept connections from any host:
 python manage.py runserver 0.0.0.0:80000
+
+
+### Update Database Models ###
+1. Update the models
+2. Create your migrations 'python manage.py makemigrations'
+3. Apply the migrations 'python manage.py migrate'
