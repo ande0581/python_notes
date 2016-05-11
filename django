@@ -15,6 +15,9 @@ vi hello_world_project/settings.py
 # To run the development server and accept connections from any host:
 python manage.py runserver 0.0.0.0:80000
 
+### To create a superuser ###
+python manage.py createsuperuser
+
 
 ### Update Database Models ###
 1. Update the models
