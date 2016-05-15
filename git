@@ -5,6 +5,8 @@ To add a file to git:
 	git add my_file.py
 	or
 	git add my_directory/
+	or
+	git add --all
 	
 To commit a change to git:
 	 git commit -m "Adding test hello"
