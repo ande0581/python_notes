@@ -23,3 +23,33 @@ python manage.py createsuperuser
 1. Update the models
 2. Create your migrations 'python manage.py makemigrations'
 3. Apply the migrations 'python manage.py migrate'
+
+
+### To work with DB objects ###
+# http://tutorial.djangogirls.org/en/django_orm/
+python manage.py shell  # This gets into the django shell, if you want to quickly test
+from my_app.models import MyDBModel
+MyDBModel.objects.all()  # To retrieve all objects in a model
+
+# To retrieve a specific object
+me = User.objects.get(username='myuser')  
+# This is to add in a new object referencing another object 'me'
+MyDBModel.objects.create(author = me, field1='foo', field2='bar')
+
+# Filter Query on specific match
+MyDBModel.objects.filter(author=myuser)
+
+# Filter using contains, less then, great then, great then equal to, etc
+# gt, lt, gte, lte (field1__lte=100)
+MyDBModel.objects.filter(field1__contains='mysearchtext')
+
+# Ordering DB objects
+MyDBObject.objects.order_by('created_date')   # ascending
+MyDBObject.objects.order_by('-created_date')  # descending, notice the dash prefix
+
+# Chaining QuerySets
+MyDBObject.objects.filter(author='myuser').order_by('created_date')
+
+
+
+
