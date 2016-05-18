@@ -1,5 +1,5 @@
 The top of a yaml formatted file should have three hyphens at the top. Python doesn’t do this automatically
-
+# pip install pyyaml
 import yaml
 
 To convert a list to yaml using standard version:
@@ -18,3 +18,20 @@ To write yaml to a file:
 To read in a yaml file:
 	with open("my_file.yml", "r") as f:
 		 new_list = yaml.load(f)
+		 
+		 
+### YAML file format rules ###
+In yaml file starts with:
+---
+
+# You can comment a yaml file with # sign
+
+# a list begins with a hypen
+- element1
+- element2
+- element3
+
+# You can do a dictionary like this
+- key1: value1
+# or dictionary like this
+{key1: value1, key2:value2}
