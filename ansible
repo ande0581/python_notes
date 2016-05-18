@@ -1,0 +1,32 @@
+Playbooks are a combination of Plays
+Plays are combination of which remote devices will I be acting on and which actions to take.
+Plays can have multiple actions/tasks
+
+### Example playbook might look like this ###
+---
+- hosts: localhost
+  vars:
+    hostname: pynet-rtr1
+  tasks:
+    - name: Generate configuration file
+      template: scr=/home/myuser/ansible/templates/router.j2
+                dest=/home/myuser/ansible/configs/router.txt
+                
+- hosts: webservers
+  tasks:
+    - name: do something
+      some_action
+      
+      
+### Ansible Host File ###
+/etc/ansible/hosts  # this is the default location
+
+# In the file if you want to not enable an ssh connection to local host do the following
+[local]
+localhost ansible_connction=local
+
+### To execute ansible actions ###
+ansible local -m ping  # this tests the local group reachability
+ansible localhost -m ping  # this tests a specific host
+
+
