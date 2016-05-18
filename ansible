@@ -23,10 +23,11 @@ Plays can have multiple actions/tasks
 
 # In the file if you want to not enable an ssh connection to local host do the following
 [local]
-localhost ansible_connction=local
+localhost ansible_connection=local
 
 ### To execute ansible actions ###
 ansible local -m ping  # this tests the local group reachability
 ansible localhost -m ping  # this tests a specific host
+ansible-playbook router.yml --check  # check tests for any changes that will be made in advanced
 
 
