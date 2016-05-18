@@ -30,4 +30,23 @@ ansible local -m ping  # this tests the local group reachability
 ansible localhost -m ping  # this tests a specific host
 ansible-playbook router.yml --check  # check tests for any changes that will be made in advanced
 
+### Ansible Roles ### 5 min mark on week 5 ansible 2 video
+# Folder Structure
+  > main_ansible_folder
+    - site.yml  # can be used to execute many different roles
+   > router  # this can be any name to describe the role
+        > tasks
+          - main.yml
+        > templates
+          - mytemplate.j2
+        > vars
+          - main.yml
 
+# Example main.yml for a specific role
+---
+- name: Generate Config File
+  template: src=mytemplate.j2 dest=/home/myuser/ansible/configs/{{item.hostname}}.txt
+  with_items: test_routers
+  
+# test_routers definition can be located here
+../router/vars/main.yml
