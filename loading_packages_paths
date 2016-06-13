@@ -1,0 +1,12 @@
+# Python searches for modules to load in the system path
+# The standard location is the site-packages folder
+
+import sys
+from pprint import pprint
+
+# See the directories that get searched
+pprint (sys.path)
+
+# To see where a file is loading itself from
+import mypackagename
+mypackagename.__file__  # this will print the location of where the file is being loaded from
