@@ -1,0 +1,34 @@
+# In python 2
+__init__.py  # makes that directory a package
+
+# You can make the entire directory a package and call it like
+import <dir_name>
+
+# You can call a particular file by
+import <dir_name>.<python_filename>
+
+# You can add stuff to the __init__.py to import stuff at the package level
+# This is useful to keep the names short that you reference in your program
+
+# in __init__.py add below
+from test_pack2.reuse_ex1 import func1, func2
+from test_pack2.reuse_ex2 import yyy, zzz
+
+# optionally you can also include which is used for * import
+__all__ = ('func1', 'func2', 'yyy', 'zzz')
+
+# then in your script you can either
+from test_pack2 import yyy
+print yyy
+
+# or
+import test_pack2
+print test_pack2.yyy
+
+# or
+from test_pack2 import *
+# this will bring in func1, func2, yyy, zzz
+
+# to see the name space and what you can call based on package imports
+dir()
+
