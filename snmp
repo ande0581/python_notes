@@ -14,7 +14,14 @@ You can use a MiB browser to find this info:
 	Tabular data does not need this
 
 From linux cli to test snmp:
-	snmpget -v 1 -c <commstring> 10.0.0.15 1.3.6.1.2.1.1.1.0
+	snmpwalk -v 2c -c <commstring> 10.0.0.15 1.3.6.1  # this returns everything starting at that oid position.
+	snmpget -v 2c -c <commstring> 10.0.0.15 1.3.6.1.2.1.1.1.0  # to return a specific value
+	snmpget -v 2c -c <commstring> 10.0.0.15 <oid_description_name_returned_by_walk>
+	
+You install the MIB definition on the server doing the SNMPWalk to get a human readable description back
+On Centos is /usr/share/snmp/mibs
+
+
 
 Python Example:
 
