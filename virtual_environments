@@ -7,4 +7,7 @@
 	7. From this stage you can install whatever you need and it will not overlap with other projects
 	8. To restore from a requirements.txt file you would type 'pip install -r requirements.txt'
 	9. To update the requirements file post package change 'pip freeze > requirements.txt'
-  10. To deactivate the environment type 'deactivate'
+  	10. To deactivate the environment type 'deactivate'
+  	
+  # To update all out of date packages in pip
+  pip list --outdated | cut -d ' ' -f1 | xargs -n1 pip install -U
