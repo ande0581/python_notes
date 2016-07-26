@@ -1,3 +1,5 @@
+http://nvie.com/posts/a-successful-git-branching-model/
+
 To clone a repository from github:
 	git clone https://github.com/userid/repository.git
 
