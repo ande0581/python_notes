@@ -1,6 +1,7 @@
 	1. Create a new project folder
 	2. From the CLI go into that folder
-	3. Virtualenv --no-site-packages env
+	3a. virtualenv --no-site-packages env  # Python2
+	3b. virtualenv -p python3 --no-site-packages env  # Python3
 	4. This creates a new folder in your directory called 'env' that gets python, pip, wheel, etc
 	5. To activate your virtual environment you type 'env\Scripts\activate'
 	6. Your CLI prompt will now be prepended with (env) c:\xxx
