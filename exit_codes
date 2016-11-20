@@ -1,0 +1,4 @@
+import sys
+
+sys.exit(1) for unsuccessful
+sys.exit(0) for successful
