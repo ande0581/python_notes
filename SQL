@@ -1,0 +1,1 @@
+A basic package to just query sql db is called 'records' - https://pypi.python.org/pypi/records/
