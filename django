@@ -1,5 +1,8 @@
 django notes:
 
+# To rebuild table after deleting migrations
+https://stackoverflow.com/questions/33259477/table-was-deleted-how-can-i-make-django-recreate-it
+
 ### Activate Virtual Environment First ###
 
 # To start a new project from the parent directory of where the project will live:
