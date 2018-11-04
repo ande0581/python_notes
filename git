@@ -26,6 +26,9 @@ To push changes up to github:
 To pull changes from the remote repository (github):
 	git pull origin master
 	
+To fetch new branches from remote:
+	git fetch
+
 To check for uncommitted files:
 	git status
 	
